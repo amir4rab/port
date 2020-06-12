@@ -1,20 +1,21 @@
 class Ui{
-    titleUI = (()=>{
+    titleUI = ()=>{
         const title = document.getElementById("mainHeader");
         const titles = ["Developer","Designer"];
         /**  
         ** Setting blinker 
         **/
-        (function blinker(){
+        function blinker(){
             setInterval(() => {
                 title.classList[1] === "blinker-active" ? title.classList.remove("blinker-active") : title.classList.add("blinker-active");
             }, 500);
-        })()
+        }
+        blinker();
         /**  
         ** Changing titles content 
         **/
         let index = 0,count = 0;
-        (function titleChanger(){
+        function titleChanger(){
             if(count != titles[index].length){
                 title.innerHTML = titles[index].slice(0 , ++count);
                 setTimeout(titleChanger, 250);
@@ -23,8 +24,9 @@ class Ui{
                 count = 0;
                 setTimeout(titleChanger, 2500);
             }
-        })()
-    })();
+        }
+        titleChanger();
+    };
     slideShowBtn = (id)=>{
         const cardSize = window.innerWidth > 799 ? 600 : 300;
 
@@ -45,7 +47,8 @@ class Ui{
                 row.style = `transform: translateX(${-cardSize*i}px)`;
             })
         }
-    }
+    };
 }
 const ui = new Ui();
+ui.titleUI()
 ui.slideShowBtn("highlights");
