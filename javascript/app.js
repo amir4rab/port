@@ -1,5 +1,5 @@
 class Ui{
-    titleUI = ()=>{
+    titleUI(){
         const title = document.getElementById("mainHeader");
         const titles = ["Developer","Designer"];
         /**  
@@ -27,7 +27,7 @@ class Ui{
         }
         titleChanger();
     };
-    slideShowBtn = (id)=>{
+    slideShowBtn(id){
         const cardSize = window.innerWidth > 799 ? 600 : 300;
 
         const section = document.getElementById(`${id}Slides`).children;
